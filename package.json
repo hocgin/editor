@@ -10,13 +10,7 @@
     "build": "father build",
     "build:watch": "father dev",
     "docs:build": "dumi build",
-    "prepare": "husky install && dumi setup",
-    "doctor": "father doctor",
-    "lint": "npm run lint:es && npm run lint:css",
-    "release": "npm run build && npm publish --access public",
-    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
-    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "father doctor && npm run build"
+    "release": "npm run build && npm publish --access public"
   },
   "authors": [
     "hocgin@gmail.com"
@@ -76,6 +70,7 @@
     "@tiptap/react": "^2.0.0-beta.108",
     "@tiptap/starter-kit": "^2.0.0-beta.183",
     "@tiptap/suggestion": "^2.0.0-beta.193",
+    "tippy.js": "^6.3.7",
     "ahooks": "^3.3.8",
     "antd": "^5.1.2",
     "classnames": "^2.3.2",
