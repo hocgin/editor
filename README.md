@@ -10,11 +10,11 @@ pnpm install @hocgin/editor
 
 #### 全屏模式
 
-<img src="_docs/demo1.jpg" width="500px">
+<img src="_docs/demo1.jpg" width="500px"/>
 
 #### 小屏模式
 
-<img src="_docs/demo2.png" width="500px">
+<img src="_docs/demo2.png" width="500px"/>
 
 ## Development
 

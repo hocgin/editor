@@ -14,7 +14,7 @@ export const Emoji: React.FC<{
     <Popover
       placement={placement}
       trigger="click"
-      content={<Picker data={data} onSelect={(emoji: any) =>
+      content={<Picker data={data} onEmojiSelect={(emoji: any) =>
         editor?.chain().insertContent(emoji.native).run()
       }/>}>
       <SmileOutlined/>
