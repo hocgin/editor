@@ -4,7 +4,9 @@
 
 ## Usage
 
+```shell
 pnpm install @hocgin/editor
+```
 
 ## Screen
 
