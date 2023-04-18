@@ -1,6 +1,6 @@
 # @hocgin/editor
 
-> 语雀同款的文本编辑器 [Demo](https://editor.hocg.in/components/editor)
+> 语雀同款的文本编辑器
 
 ## Usage
 
