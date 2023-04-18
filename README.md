@@ -2,6 +2,8 @@
 
 > 语雀同款的文本编辑器
 
+![npm](https://img.shields.io/npm/v/@hocgin/editor?style=flat-square)
+
 ## Usage
 
 ```shell
