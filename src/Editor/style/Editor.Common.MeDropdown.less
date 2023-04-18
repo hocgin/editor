@@ -1,0 +1,56 @@
+@import (reference) '../../style/index.less';
+
+@editor-e-me-dropdown-prefix-cls: ~'@{hui-prefix}-editor-e-me-dropdown';
+
+.@{editor-e-me-dropdown-prefix-cls} {
+  padding: 0 6px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  //height: unset;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+
+  .@{editor-e-me-dropdown-prefix-cls}-selectedValue {
+    text-align: left;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .@{editor-e-me-dropdown-prefix-cls}-caretDown {
+      width: 10px;
+      height: 10px;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.@{editor-e-me-dropdown-prefix-cls}-horizontal > ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.@{editor-e-me-dropdown-prefix-cls}-menu {
+  .@{ant-prefix}-dropdown-menu-title-content {
+    display: flex;
+    align-items: center;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+}

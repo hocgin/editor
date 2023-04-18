@@ -1,0 +1,28 @@
+@import (reference) '../../style/index.less';
+
+@editor--extension-mention-prefix-cls: ~'@{hui-prefix}-editor--extension-mention';
+
+.@{editor--extension-mention-prefix-cls} {
+  background: #fff;
+  border-radius: 0.5rem;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.9rem;
+  overflow: hidden;
+  padding: 0.2rem;
+  position: relative;
+
+  .@{editor--extension-mention-prefix-cls}-item {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.4rem;
+    display: block;
+    margin: 0;
+    padding: 0.2rem 0.4rem;
+    text-align: left;
+    width: 100%;
+
+    &.@{editor--extension-mention-prefix-cls}-isSelected {
+      border-color: #000;
+    }
+  }
+}

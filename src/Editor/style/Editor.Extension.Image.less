@@ -1,0 +1,69 @@
+@import (reference) '../../style/index.less';
+
+@editor--Extension-Image-prefix-cls: ~'@{hui-prefix}-editor--Extension-Image';
+
+.@{editor--Extension-Image-prefix-cls} {
+  box-sizing: border-box;
+  clear: both;
+  display: inline-block;
+  max-width: 100%;
+  outline-color: transparent;
+  outline-style: solid;
+  outline-width: 2px;
+  transition: all 0.2s ease-in;
+  position: relative;
+
+  img {
+    &:hover {
+      border: 1px solid #ffc83d;
+      box-shadow: 0 0 0 1px #ffc83d;
+    }
+  }
+
+  &-imageResizer {
+    border: 1px solid #409eff;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+
+    .@{editor--Extension-Image-prefix-cls}-imageResizerHandle {
+      background-color: #409eff;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      box-sizing: border-box;
+      display: block;
+      height: 12px;
+      position: absolute;
+      width: 12px;
+      z-index: 2;
+    }
+
+    .@{editor--Extension-Image-prefix-cls}-imageResizerHandleTl {
+      cursor: nw-resize;
+      left: -6px;
+      top: -6px;
+    }
+
+    .@{editor--Extension-Image-prefix-cls}-imageResizerHandleTr {
+      cursor: ne-resize;
+      right: -6px;
+      top: -6px;
+    }
+
+    .@{editor--Extension-Image-prefix-cls}-imageResizerHandleBl {
+      bottom: -6px;
+      cursor: sw-resize;
+      left: -6px;
+    }
+
+    .@{editor--Extension-Image-prefix-cls}-imageResizerHandleBr {
+      bottom: -6px;
+      cursor: se-resize;
+      right: -6px;
+    }
+  }
+}

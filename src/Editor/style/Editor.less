@@ -1,0 +1,141 @@
+@import (reference) '../../style/mixin.less';
+@import (reference) '../../style/index.less';
+@import (reference) './Editor.prosemirror.less';
+
+@editor-prefix-cls: ~'@{hui-prefix}-editor';
+
+.@{editor-prefix-cls} {
+  //color: unset;
+}
+
+.@{editor-prefix-cls}-editor {
+  height: 100%;
+}
+
+.@{editor-prefix-cls}-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+
+  &.@{editor-prefix-cls}-header-hide {
+    padding: 2px 0;
+    border-bottom: unset;
+
+    .toggleFull {
+      width: unset;
+      position: relative;
+      z-index: 1000;
+    }
+  }
+
+  &-tpToolbarWrapper {
+    flex: 1;
+    overflow-x: auto;
+  }
+
+  &-tpToolbar {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 50px;
+    padding-left: 40px;
+    background: #fff;
+  }
+
+  &-toggleFull {
+    width: 40px;
+
+    button {
+      z-index: 1000;
+    }
+  }
+}
+
+.@{editor-prefix-cls}-btToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.@{editor-prefix-cls}-heart {
+  margin-right: 10px;
+  .mobile({
+    display: none;
+  });
+}
+
+.@{editor-prefix-cls}-btActions {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-left: 8px;
+  height: 32px;
+  overflow-x: auto;
+}
+
+.@{editor-prefix-cls}-content {
+  padding: 16px 16px 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1 1;
+
+  &:focus-visible,
+  & > div:focus-visible,
+  .ProseMirror {
+    outline: none !important;
+  }
+}
+
+.@{editor-prefix-cls}-editorWrapper {
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &.@{editor-prefix-cls}-editable {
+    box-sizing: border-box;
+  }
+
+  &.@{editor-prefix-cls}-noEditable {
+    background-color: unset;
+    border: unset;
+  }
+
+  &.@{editor-prefix-cls}-fullscreen {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1010;
+    height: auto !important;
+    max-height: unset;
+
+    .@{editor-prefix-cls}-content {
+      height: 100%;
+    }
+  }
+
+  &.@{editor-prefix-cls}-mini {
+    .@{editor-prefix-cls}-header {
+      float: right;
+      display: inline-block;
+      align-self: flex-end;
+      position: absolute;
+    }
+
+    .@{editor-prefix-cls}-content {
+      padding-top: 6px;
+    }
+  }
+}
+
+.sketch-picker {
+  box-shadow: none !important;
+}

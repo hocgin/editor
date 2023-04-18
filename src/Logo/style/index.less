@@ -1,0 +1,77 @@
+@import (reference) '../../style/index.less';
+
+@logo-prefix-cls: ~'@{hui-prefix}-logo';
+@logo-heart-prefix-cls: ~'@{hui-prefix}-logo-heart';
+
+.@{logo-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+
+  &-prefix {
+    color: #707070cc;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &-text {
+    margin-left: 1px;
+    color: #454d64;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 6px;
+    font-weight: 500;
+
+    &:hover {
+      color: #454d64;
+      background-color: #00000012;
+      border-radius: 9999px;
+    }
+  }
+
+  &-box {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+  }
+
+  &-image {
+    border: .5px solid #E2E4E7;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: ffffffba;
+    // background-color: rgba(23, 23, 23, 85);
+  }
+}
+
+.@{logo-heart-prefix-cls} {
+  display: flex;
+
+  &-heart {
+    box-sizing: border-box;
+    vertical-align: baseline;
+    color: #f22e3c;
+    margin: 0 4px;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    animation: animation-heartbeat 1.3s ease 0s infinite normal;
+
+    @keyframes animation-heartbeat {
+      0%,
+      28%,
+      70% {
+        transform: scale(1);
+      }
+
+      14%,
+      42% {
+        transform: scale(1.3);
+      }
+    }
+  }
+}

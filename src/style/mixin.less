@@ -1,0 +1,37 @@
+.mobile(@rules) {
+  @media only screen and (max-width: 800px) {
+    @rules();
+  }
+}
+
+.dark(@rules) {
+  @media (prefers-color-scheme: dark) {
+    @rules();
+  }
+}
+
+.a() {
+  border-bottom: 4px solid #e2e8f0;
+  text-decoration: inherit;
+  box-sizing: inherit;
+  color: #a0aec0;
+  font-weight: 700;
+}
+
+.heartbeat {
+  display: inline-block;
+  animation: animation-heartbeat 1.3s ease 0s infinite normal;
+}
+
+@keyframes animation-heartbeat {
+  0%,
+  28%,
+  70% {
+    transform: scale(1);
+  }
+
+  14%,
+  42% {
+    transform: scale(1.3);
+  }
+}
