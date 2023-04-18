@@ -2,7 +2,7 @@
 
 > 语雀同款的文本编辑器
 
-![npm](https://img.shields.io/npm/v/@hocgin/editor?style=flat-square)
+[![npm](https://img.shields.io/npm/v/@hocgin/editor?style=flat-square)](https://www.npmjs.com/package/@hocgin/editor)
 
 ## Usage
 
