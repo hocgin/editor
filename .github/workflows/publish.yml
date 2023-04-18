@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node_version: [ 14.13.1 ]
+        node_version: [ 18.x ]
         os: [ ubuntu-18.04 ]
     steps:
       - name: Checkout
