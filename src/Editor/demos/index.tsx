@@ -6,6 +6,104 @@ import React, {useRef, useState} from 'react';
 import {Editor} from '@hocgin/editor';
 import {Button, Divider, Space} from 'antd';
 import {useToggle} from 'ahooks';
+import classnames from "classnames";
+import './index.less';
+
+let onSearchMention = (query: string) => {
+  return [
+    'Lea Thompson',
+    'Cyndi Lauper',
+    'Tom Cruise',
+    'Madonna',
+    'Jerry Hall',
+    'Joan Collins',
+    'Winona Ryder',
+    'Christina Applegate',
+    'Alyssa Milano',
+    'Molly Ringwald',
+    'Ally Sheedy',
+    'Debbie Harry',
+    'Olivia Newton-John',
+    'Elton John',
+    'Michael J. Fox',
+    'Axl Rose',
+    'Emilio Estevez',
+    'Ralph Macchio',
+    'Rob Lowe',
+    'Jennifer Grey',
+    'Mickey Rourke',
+    'John Cusack',
+    'Matthew Broderick',
+    'Justine Bateman',
+    'Lisa Bonet',
+  ]
+    .filter((item) => item.toLowerCase().startsWith(query.toLowerCase()))
+    .slice(0, 5);
+};
+
+export default () => {
+  let editorRef = useRef<any>();
+  let [editable, setEditable] = useState<boolean>(true);
+  let [fullscreen, setFullscreen] = useState<boolean>(false);
+  let [unsetHeight, {toggle: toggleUnsetHeight}] = useToggle(false);
+  let [text, setText] = useState<string>('');
+  return (
+    <>
+      <Editor onSearchMention={onSearchMention}
+              editorRef={editorRef}
+              editable={editable}
+              fullscreen={fullscreen}
+              placeholder={'请输入内容'}
+              value={content}
+              className={classnames({
+                ['useHeight']: !unsetHeight
+              })}
+              onChangeFullscreen={(fullscreen: any) => setFullscreen(fullscreen)}/>
+      <Divider orientation='left'>Control</Divider>
+      <Space>
+        <Button
+          onClick={() => {
+            setText(editorRef.current.getHTML());
+          }}
+        >
+          获取HTML
+        </Button>
+        <Button
+          onClick={() => {
+            setText(JSON.stringify(editorRef.current.getJSON()));
+          }}
+        >
+          获取JSON
+        </Button>
+        <Button
+          onClick={() => {
+            let b = !editable;
+            editorRef.current.setEditable(b);
+            setEditable(b);
+          }}
+        >
+          {editable ? '可编辑' : '不可编辑'}
+        </Button>
+        <Button onClick={toggleUnsetHeight}>
+          {unsetHeight ? '取消高度' : '恢复高度'}
+        </Button>
+        <Button
+          onClick={() => {
+            let b = !fullscreen;
+            editorRef.current.setFullscreen(b);
+            setFullscreen(b);
+          }}
+        >
+          {fullscreen ? '全屏' : '非全屏'}
+        </Button>
+      </Space>
+      <Divider orientation='left'>HTML</Divider>
+      <div>{text}</div>
+      <Divider orientation='left'>Only Ready</Divider>
+      <Editor editable={false} value={'你好'}/>
+    </>
+  );
+};
 
 const content = `
               <pre class='line-numbers'><code class='language-javascript'>for (var i=1; i <= 20; i++)
@@ -83,98 +181,3 @@ const content = `
         — Mom
       </blockquote>
     `;
-
-let onSearchMention = (query: string) => {
-  return [
-    'Lea Thompson',
-    'Cyndi Lauper',
-    'Tom Cruise',
-    'Madonna',
-    'Jerry Hall',
-    'Joan Collins',
-    'Winona Ryder',
-    'Christina Applegate',
-    'Alyssa Milano',
-    'Molly Ringwald',
-    'Ally Sheedy',
-    'Debbie Harry',
-    'Olivia Newton-John',
-    'Elton John',
-    'Michael J. Fox',
-    'Axl Rose',
-    'Emilio Estevez',
-    'Ralph Macchio',
-    'Rob Lowe',
-    'Jennifer Grey',
-    'Mickey Rourke',
-    'John Cusack',
-    'Matthew Broderick',
-    'Justine Bateman',
-    'Lisa Bonet',
-  ]
-    .filter((item) => item.toLowerCase().startsWith(query.toLowerCase()))
-    .slice(0, 5);
-};
-
-export default () => {
-  let editorRef = useRef<any>();
-  let [editable, setEditable] = useState<boolean>(true);
-  let [fullscreen, setFullscreen] = useState<boolean>(false);
-  let [unsetHeight, {toggle: toggleUnsetHeight}] = useToggle(false);
-  let [text, setText] = useState<string>('');
-  return (
-    <>
-      <Editor
-        onSearchMention={onSearchMention}
-        editorRef={editorRef}
-        editable={editable}
-        fullscreen={fullscreen}
-        placeholder={'请输入内容'}
-        value={content}
-        onChangeFullscreen={(fullscreen: any) => setFullscreen(fullscreen)}
-      />
-      <Divider orientation='left'>Control</Divider>
-      <Space>
-        <Button
-          onClick={() => {
-            setText(editorRef.current.getHTML());
-          }}
-        >
-          获取HTML
-        </Button>
-        <Button
-          onClick={() => {
-            setText(JSON.stringify(editorRef.current.getJSON()));
-          }}
-        >
-          获取JSON
-        </Button>
-        <Button
-          onClick={() => {
-            let b = !editable;
-            editorRef.current.setEditable(b);
-            setEditable(b);
-          }}
-        >
-          {editable ? '可编辑' : '不可编辑'}
-        </Button>
-        <Button onClick={toggleUnsetHeight}>
-          {unsetHeight ? '取消高度' : '恢复高度'}
-        </Button>
-        <Button
-          onClick={() => {
-            let b = !fullscreen;
-            editorRef.current.setFullscreen(b);
-            setFullscreen(b);
-          }}
-        >
-          {fullscreen ? '全屏' : '非全屏'}
-        </Button>
-      </Space>
-      <Divider orientation='left'>HTML</Divider>
-      <div>{text}</div>
-      <Divider orientation='left'>Only Ready</Divider>
-      <Editor editable={false} value={'你好'}/>
-    </>
-  );
-};
