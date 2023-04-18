@@ -1,7 +1,7 @@
 {
   "name": "@hocgin/editor",
   "version": "0.0.1",
-  "description": "A react editor",
+  "description": "A React Editor",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
