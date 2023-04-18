@@ -94,6 +94,7 @@
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "dumi": "^2.0.2",
     "eslint": "^8.23.0",
     "father": "^4.1.0",

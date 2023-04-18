@@ -58,6 +58,7 @@ specifiers:
   '@umijs/lint': ^4.0.0
   ahooks: ^3.3.8
   antd: ^5.1.2
+  babel-plugin-transform-remove-console: ^6.9.4
   classnames: ^2.3.2
   codemirror: ^5.65.5
   dumi: ^2.0.2
@@ -136,6 +137,7 @@ devDependencies:
   '@types/react-color': 3.0.6
   '@types/react-dom': 18.0.11
   '@umijs/lint': 4.0.65_mcmuskl3kaupngu334w7gex4jy
+  babel-plugin-transform-remove-console: 6.9.4
   dumi: 2.1.21_2nxibxl2sgj4gw7muo3s7lgwsu
   eslint: 8.38.0
   father: 4.1.7_wzy5zx5cgy7oeu3xi6ejn7mdqm
@@ -4267,6 +4269,10 @@ packages:
     dependencies:
       lodash: 4.17.21
       traverse: 0.6.6
+    dev: true
+
+  /babel-plugin-transform-remove-console/6.9.4:
+    resolution: {integrity: sha512-88blrUrMX3SPiGkT1GnvVY8E/7A+k6oj3MNvUtTIxJflFzXTw1bHkuJ/y039ouhFMp2prRn5cQGzokViYi1dsg==}
     dev: true
 
   /babel-preset-current-node-syntax/1.0.1_@babel+core@7.21.4:

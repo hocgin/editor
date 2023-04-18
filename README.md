@@ -1,16 +1,20 @@
 # @hocgin/editor
 
-> 语雀同款的文本编辑器
+> 语雀同款的文本编辑器 [Demo](https://editor.hocg.in/components/editor)
 
 ## Usage
 
 pnpm install @hocgin/editor
 
-http://localhost:8000/components/editor
-
 ## Screen
 
-![@hocgin:editor_screen.png](_docs%2F%40hocgin%3Aeditor_screen.png)[](./_docs/)
+#### 全屏模式
+
+<img src="_docs/demo1.jpg" width="500px">
+
+#### 小屏模式
+
+<img src="_docs/demo2.png" width="500px">
 
 ## Development
 

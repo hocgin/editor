@@ -1,0 +1,71 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+    paths-ignore:
+      - '_docs/**'
+      - '*.md'
+      - '*.editorconfig'
+      - '*.gitignore'
+
+jobs:
+  build-and-publish:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [ 14.13.1 ]
+        os: [ ubuntu-18.04 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - id: prep
+        uses: hocgin/action-env@main
+      - name: Git Identity
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Authenticate with Registry
+        run: |
+          echo "@apollo-elements:registry=https://registry.npmjs.org/" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Rename Version
+        run: |
+          sed -i "s/\"0.0.1\"/\"${VERSION}\"/" package.json
+        env:
+          VERSION: ${{ steps.prep.outputs.version_number }}
+      - name: Publish Package
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm run release
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+          USE_LOG: false
