@@ -2,8 +2,10 @@
   "name": "@hocgin/editor",
   "version": "0.0.1",
   "description": "A React Editor",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/index.umd.min.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
