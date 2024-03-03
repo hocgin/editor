@@ -3,14 +3,16 @@ import { Button, Tooltip } from 'antd';
 import classnames from 'classnames';
 import { ConfigContext } from '@/ConfigProvider';
 
-const Index: React.FC<{
+type TbButtonProps = {
   className?: string;
   onClick?: (e) => void;
   children?: any;
   title?: string;
   prefixCls?: string;
   disabled?: boolean;
-}> = ({ className, disabled = false, title, children, onClick, ...props }) => {
+  block?: boolean;
+};
+const Index: React.FC<TbButtonProps> = ({ className, disabled = false, title, children, onClick, ...props }) => {
   let { getPrefixCls } = React.useContext(ConfigContext);
   let prefixCls = getPrefixCls('editor-e-tb-button', props.prefixCls);
   return (
@@ -21,9 +23,9 @@ const Index: React.FC<{
       e.nativeEvent.preventDefault();
       e.nativeEvent.stopImmediatePropagation();
       return false;
-    }}>
+    }} onClick={onClick}>
       <Tooltip placement="bottom" title={title}>
-        <Button onClick={onClick} disabled={disabled}>
+        <Button disabled={disabled} block>
           <div onTouchStart={(e) => e.preventDefault()}>{children}</div>
         </Button>
       </Tooltip>
