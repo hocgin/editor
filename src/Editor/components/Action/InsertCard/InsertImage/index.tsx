@@ -53,8 +53,8 @@ export const InsertImage: React.FC<Props> = ({ editor, uploadUrl }) => {
 
 export const InsertImageInput: React.FC<{ editor?: Editor | null }> = ({ editor }) => (
   <TbButton title="图片" onClick={(e) => {
-    const url: any = window.prompt('URL');
-    if (url) {
+    const url: string = window.prompt('URL');
+    if (url?.length) {
       editor?.chain().focus().setImage({ src: url }).run();
     }
   }}>

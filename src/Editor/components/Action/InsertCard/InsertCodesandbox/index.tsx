@@ -8,12 +8,9 @@ export const InsertCodesandbox: React.FC<Props> = ({ editor }) => (
   <TbButton
     title="codesandbox"
     onClick={() => {
-      const url: any = window.prompt('URL');
-      if (url) {
-        let code = url;
-        editor?.chain().focus()
-          .setIframe({ src: `${code}` })
-          .run();
+      const url: string = window.prompt('URL');
+      if (url?.length) {
+        editor?.chain().focus().setIframe({ src: `${url}` }).run();
       }
     }}
   >

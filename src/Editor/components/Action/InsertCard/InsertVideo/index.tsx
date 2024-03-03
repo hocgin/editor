@@ -6,11 +6,11 @@ import { YoutubeOutlined } from '@ant-design/icons';
 type Props = { editor?: Editor | null };
 export const InsertVideo: React.FC<Props> = ({ editor }) => (
   <TbButton title="视频" onClick={() => {
-    const url: any = window.prompt('URL');
-    if (url) {
+    const url: string = window.prompt('URL');
+    if (url?.length) {
       let code = url;
       if (`${url}`.includes('youtube')) {
-        code = getYouTubeCode(url);
+        code = getYouTubeCode(url) as any;
       }
       editor?.chain().focus()
         .setIframe({ src: `https://www.youtube.com/embed/${code}` })
