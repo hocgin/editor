@@ -3,26 +3,20 @@ import { Editor } from '@tiptap/react';
 import TbButton from '@/Editor/components/Common/TbButton';
 import { YoutubeOutlined } from '@ant-design/icons';
 
-export const InsertVideo: React.FC<{ editor?: Editor | null }> = ({
-  editor,
-}) => (
-  <TbButton
-    title="视频"
-    onClick={() => {
-      const url: any = window.prompt('URL');
-      if (url) {
-        let code = url;
-        if (`${url}`.includes('youtube')) {
-          code = getYouTubeCode(url);
-        }
-        editor
-          ?.chain()
-          .focus()
-          .setIframe({ src: `https://www.youtube.com/embed/${code}` })
-          .run();
+type Props = { editor?: Editor | null };
+export const InsertVideo: React.FC<Props> = ({ editor }) => (
+  <TbButton title="视频" onClick={() => {
+    const url: any = window.prompt('URL');
+    if (url) {
+      let code = url;
+      if (`${url}`.includes('youtube')) {
+        code = getYouTubeCode(url);
       }
-    }}
-  >
+      editor?.chain().focus()
+        .setIframe({ src: `https://www.youtube.com/embed/${code}` })
+        .run();
+    }
+  }}>
     <YoutubeOutlined /> YouTube
   </TbButton>
 );
