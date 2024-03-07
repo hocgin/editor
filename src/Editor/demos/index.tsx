@@ -2,11 +2,11 @@
  * title: 我是标题
  * desc: 我是简介，我可以用 `Markdown` 来编写
  */
-import React, {useRef, useState} from 'react';
-import {Editor} from '@hocgin/editor';
-import {Button, Divider, Space} from 'antd';
-import {useToggle} from 'ahooks';
-import classnames from "classnames";
+import React, { useRef, useState } from 'react';
+import { Editor } from '@hocgin/editor';
+import { Button, Divider, Space } from 'antd';
+import { useToggle } from 'ahooks';
+import classnames from 'classnames';
 import './index.less';
 
 let onSearchMention = (query: string) => {
@@ -45,10 +45,10 @@ export default () => {
   let editorRef = useRef<any>();
   let [editable, setEditable] = useState<boolean>(true);
   let [fullscreen, setFullscreen] = useState<boolean>(false);
-  let [unsetHeight, {toggle: toggleUnsetHeight}] = useToggle(false);
+  let [unsetHeight, { toggle: toggleUnsetHeight }] = useToggle(false);
   let [text, setText] = useState<string>('');
   return (
-    <>
+    <div className={'body'}>
       <Editor onSearchMention={onSearchMention}
               editorRef={editorRef}
               editable={editable}
@@ -56,10 +56,10 @@ export default () => {
               placeholder={'请输入内容'}
               value={content}
               className={classnames({
-                ['useHeight']: !unsetHeight
+                ['useHeight']: !unsetHeight,
               })}
-              onChangeFullscreen={(fullscreen: any) => setFullscreen(fullscreen)}/>
-      <Divider orientation='left'>Control</Divider>
+              onChangeFullscreen={(fullscreen: any) => setFullscreen(fullscreen)} />
+      <Divider orientation="left">Control</Divider>
       <Space>
         <Button
           onClick={() => {
@@ -97,11 +97,11 @@ export default () => {
           {fullscreen ? '全屏' : '非全屏'}
         </Button>
       </Space>
-      <Divider orientation='left'>HTML</Divider>
+      <Divider orientation="left">HTML</Divider>
       <div>{text}</div>
-      <Divider orientation='left'>Only Ready</Divider>
-      <Editor editable={false} value={'你好'}/>
-    </>
+      <Divider orientation="left">Only Ready</Divider>
+      <Editor editable={false} value={'你好'} />
+    </div>
   );
 };
 
