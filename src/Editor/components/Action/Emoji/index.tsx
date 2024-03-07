@@ -3,7 +3,6 @@ import type { Editor } from '@tiptap/react';
 import TbButton from '@/Editor/components/Common/TbButton';
 import { SmileOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
-import data from '@emoji-mart/data';
 import EmojiPicker from 'emoji-picker-react';
 
 type EmojiProps = {
