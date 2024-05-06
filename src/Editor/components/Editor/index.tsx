@@ -136,7 +136,7 @@ type onSearchMentionFunction =
   | ((keyword: string) => Mention[] | undefined)
   | undefined;
 
-const Index: React.FC<{
+type Created = {
   editorRef?: MutableRefObject<EditorFn | undefined>;
   header?: any;
   value?: any;
@@ -150,21 +150,22 @@ const Index: React.FC<{
   onChange?: (value: string) => void;
   onSearchMention?: onSearchMentionFunction;
   onChangeFullscreen?: (fullscreen: boolean) => void;
-}> = ({
-        onChange,
-        className,
-        placeholder = '',
-        contentClassName,
-        header,
-        onChangeFullscreen,
-        editorRef,
-        fullscreen = false,
-        editable = true,
-        value,
-        onSearchMention,
-        uploadImageUrl,
-        ...props
-      }) => {
+};
+const Index: React.FC<Created> = ({
+                                    onChange,
+                                    className,
+                                    placeholder = '',
+                                    contentClassName,
+                                    header,
+                                    onChangeFullscreen,
+                                    editorRef,
+                                    fullscreen = false,
+                                    editable = true,
+                                    value,
+                                    onSearchMention,
+                                    uploadImageUrl,
+                                    ...props
+                                  }) => {
   // 导入css
   // useExternal('//highlightjs.org/static/demo/styles/base16/ia-dark.css');
   let [isFullscreen, { toggle: toggleFullscreen, set: setFullscreen }] =
