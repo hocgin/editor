@@ -15,7 +15,7 @@ interface MenuInfo {
   onMatched?: () => boolean | undefined;
 }
 
-const Index: React.FC<{
+type Created = {
   className?: string;
   prefixCls?: string;
   titleStyle?: any;
@@ -26,18 +26,19 @@ const Index: React.FC<{
   onClick?: (key: string) => void;
   mode?: 'vertical' | 'horizontal' | 'inline';
   disabled?: boolean;
-}> = ({
-  className,
-  placement,
-  disabled = false,
-  titleClassName,
-  onClick,
-  titleStyle,
-  menus = [],
-  defaultValue,
-  mode,
-  ...props
-}) => {
+};
+const Index: React.FC<Created> = ({
+                                    className,
+                                    placement,
+                                    disabled = false,
+                                    titleClassName,
+                                    onClick,
+                                    titleStyle,
+                                    menus = [],
+                                    defaultValue,
+                                    mode,
+                                    ...props
+                                  }) => {
   let [key, setKey] = useState<string>('none');
   let matchMenu = (key: string) => menus?.find((item) => item.key === key);
 
