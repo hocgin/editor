@@ -3,6 +3,7 @@
     "strict": false,
     "declaration": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
     "esModuleInterop": true,
     "jsx": "react",
     "baseUrl": "./",

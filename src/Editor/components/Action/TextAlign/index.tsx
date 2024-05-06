@@ -1,5 +1,5 @@
 import React from 'react';
-import {Editor} from '@tiptap/react';
+import { Editor } from '@tiptap/react';
 import {
   AlignCenterOutlined,
   AlignLeftOutlined,
@@ -8,47 +8,45 @@ import {
 } from '@ant-design/icons';
 import MeDropdown from '@/Editor/components/Common/MeDropdown';
 
-export const TextAlign: React.FC<{ editor?: Editor | null }> = ({editor}) => {
+export const TextAlign: React.FC<{ editor?: Editor | null }> = ({ editor }) => {
   let menus = [
     {
       key: 'left',
-      title: <AlignLeftOutlined/>,
-      header: <AlignLeftOutlined/>,
+      title: <AlignLeftOutlined />,
+      header: <AlignLeftOutlined />,
       onAction: () => editor?.chain().focus().setTextAlign('left').run(),
-      onMatched: () => editor?.isActive({textAlign: 'left'}),
+      onMatched: () => editor?.isActive({ textAlign: 'left' }),
     },
     {
       key: 'center',
-      title: <AlignCenterOutlined/>,
-      header: <AlignCenterOutlined/>,
+      title: <AlignCenterOutlined />,
+      header: <AlignCenterOutlined />,
       onAction: () => editor?.chain().focus().setTextAlign('center').run(),
-      onMatched: () => editor?.isActive({textAlign: 'center'}),
+      onMatched: () => editor?.isActive({ textAlign: 'center' }),
     },
     {
       key: 'right',
-      title: <AlignRightOutlined/>,
-      header: <AlignRightOutlined/>,
+      title: <AlignRightOutlined />,
+      header: <AlignRightOutlined />,
       onAction: () => editor?.chain().focus().setTextAlign('right').run(),
-      onMatched: () => editor?.isActive({textAlign: 'right'}),
+      onMatched: () => editor?.isActive({ textAlign: 'right' }),
     },
     {
       key: 'justify',
-      title: <QuestionOutlined/>,
-      header: <QuestionOutlined/>,
+      title: <QuestionOutlined />,
+      header: <QuestionOutlined />,
       onAction: () => editor?.chain().focus().setTextAlign('justify').run(),
-      onMatched: () => editor?.isActive({textAlign: 'justify'}),
+      onMatched: () => editor?.isActive({ textAlign: 'justify' }),
     },
   ];
   return (
     <MeDropdown
       menus={menus}
       mode="horizontal"
-      titleStyle={
-        {
-          width: 20,
-        } as any
-      }
-      defaultValue={<AlignLeftOutlined/>}
+      titleStyle={{
+        width: 20,
+      }}
+      defaultValue={<AlignLeftOutlined />}
     />
   );
 };
