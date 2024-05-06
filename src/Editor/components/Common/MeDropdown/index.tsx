@@ -56,7 +56,7 @@ const Index: React.FC<Created> = ({
   let prefixCls = getPrefixCls('editor-e-me-dropdown', props.prefixCls);
   return (
     <Button
-      type="text"
+      type="text" size={'small'}
       disabled={disabled}
       className={classnames(prefixCls, className)}
       onTouchStart={(e) => e.preventDefault()}
